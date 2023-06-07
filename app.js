@@ -34,7 +34,14 @@ app.get("/contact", (req,res)=>{
   });
 });
 
+app.get("/compose", (req,res)=>{
+  res.render("compose");
+});
 
+app.post("/compose", (req,res)=>{
+  let content = req.body.postTitle;
+  console.log(content);
+})
 
 
 
