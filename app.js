@@ -20,13 +20,14 @@ app.use(express.static("public"));
 
 app.get("/", (req,res)=>{
   res.render("home", {
-    home: homeStartingContent
+    home: homeStartingContent,
+    posts: posts
   });
 });
 
 app.get("/about", (req,res)=>{
   res.render("about", {
-    about: aboutContent
+    about: aboutContent,
   });
 });
 
@@ -47,8 +48,11 @@ app.post("/compose", (req,res)=>{
   };
   
   posts.push(post);
-  console.log(posts);
   res.redirect("/");
+})
+
+app.get("/posts/:postName", (req,res)=>{
+  console.log(req.params.postName);
 })
 
 
